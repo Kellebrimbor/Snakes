@@ -6,16 +6,19 @@ let game = {
     seeScore: function () {
         document.querySelector('.outpud').innerHTML = (" " + game.score);
     },
-    scene: ["##########",
-        "#        #",
-        "#        #",
-        "#        #",
-        "#  ####  #",
-        "#  ####  #",
-        "#        #",
-        "#        #",
-        "#        #",
-        "##########"],
+    scene: ["###############",
+        "#             #",
+        "#             #",
+        "#             #",
+        "#             #",
+        "#    #####    #",
+        "#    #####    #",
+        "#    #####    #",
+        "#    #####    #",
+        "#    #####    #",
+        "#             #",
+        "#             #",
+        "###############"],
     fruit: [
         {x: 1, y: 1}
     ],
@@ -43,10 +46,8 @@ let game = {
     addRandomFruit: function () {
         let randomY = Math.floor(Math.random() * game.scene.length);
         let randomX = Math.floor(Math.random() * game.scene[randomY].length);
-
         let randomLocation = {x: randomX, y: randomY};
-
-        if (game.isEmpty(randomLocation) && !game.isFruit(randomLocation) && !game.isWall(randomLocation)) {
+        if (game.isEmpty(randomLocation) && !game.isFruit(randomLocation) && !game.isWall(randomLocation) && !game.isSnake(randomLocation)) {
             game.fruit.push(randomLocation);
         } else {
             this.addRandomFruit();
@@ -54,7 +55,6 @@ let game = {
     },
     isEmpty: function (location) {
         return game.scene[location.y][location.x] === ' ';
-
     },
     isWall: function (location) {
         return game.scene[location.y][location.x] === '#';
@@ -102,20 +102,21 @@ let snake = {
         if (game.isWall(location) || game.isSnake(location)) {
             return "gameover";
         }
-        if (game.isEmpty(location)) {
-            snake.parts.unshift(location);
-            snake.parts.pop();
-        }
-
         if (game.isFruit(location)) {
             snake.parts.unshift(location);
             game.score++;
+            return;
+        }
+        if (!game.isFruit(location)) {
+            snake.parts.unshift(location);
+            snake.parts.pop();
+            return;
         }
     }
 };
 let graphics = {
     canvas: document.getElementById("canvas"),
-    squarSize: 30,
+    squarSize: 700/Math.max(game.scene.length, game.scene[0].length),
     drawBoard: function (ctx) {
         let currentYoffset = 0;
         game.scene.forEach(function checkLine(line) {

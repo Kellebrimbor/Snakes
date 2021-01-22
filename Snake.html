@@ -3,16 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./Snake.css">
     <title>Snakes</title>
 
 </head>
 <body>
-<canvas id="canvas" width="300" height="300"></canvas>
-<p class="outpud"></p>
-<button class="pause" onclick={game.pauses()}>пауза</button>
-<button class="goagain" onclick={game.continue()}>продолжение</button>
-<p class="outpud"></p>
-<script  src="./graphics_pole.js"
+<div class="flex">
+    <div class="game">
+        <canvas id="canvas" width="700" height="700"></canvas>
+    </div>
+    <div>
+        <p class="outpud"></p>
+        <button class="pause" onclick={game.pauses()}>пауза</button>
+        <button class="goagain" onclick={game.continue()}>продолжение</button>
+        <p class="outpud"></p>
+    </div>
+</div>
+<script src="./graphics_pole.js"
 
 ></script>
 </body>
