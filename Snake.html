@@ -5,18 +5,25 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./Snake.css">
     <title>Snakes</title>
-
 </head>
 <body>
 <div class="flex">
     <div class="game">
-        <canvas id="canvas" width="700" height="700"></canvas>
+        <div>
+            <canvas id="canvas" width="700" height="700"></canvas>
+        </div>
+        <div>
+            <p class="outpud"></p>
+            <button class="pause">пауза</button>
+            <button class="goagain">продолжение</button>
+            <p class="outpud"></p>
+        </div>
     </div>
-    <div>
-        <p class="outpud"></p>
-        <button class="pause" onclick={game.pauses()}>пауза</button>
-        <button class="goagain" onclick={game.continue()}>продолжение</button>
-        <p class="outpud"></p>
+    <div class="startGame">
+        <button>старт игры</button>
+    </div>
+    <div class="endgame">
+        <button>начать сначала</button>
     </div>
 </div>
 

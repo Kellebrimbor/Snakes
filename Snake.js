@@ -3,7 +3,6 @@ export default class snake {
         this.parts = [
             {x: 4, y: 2},
             {x: 3, y: 2},
-            {x: 2, y: 2},
         ];
         this.facing = "E";
     }
@@ -23,33 +22,10 @@ export default class snake {
         return {x: targetX, y: targetY};
     };
 
-    move(field,isWall) {
-        let location = this.nextLocation()
-        if (isWall(field,location)) {
-            return "gameover";
-        }
+    move() {
+        let location = this.nextLocation();
         this.parts.unshift(location);
         this.parts.pop();
     }
 
-    /*  move(isFruit, isSnake, isWall, score) {
-
-          let par = this.parts;
-
-          let location = this.nextLocation();
-
-          if (isWall(location) || isSnake(location, this.getParts(),this.parts.length)) {
-              return "gameover";
-          }
-          if (isFruit(location)) {
-              this.parts.unshift(location);
-              score++;
-              return;
-          }
-          if (!isFruit(location)) {
-              this.parts.unshift(location);
-              this.parts.pop();
-              return;
-          }
-      }*/
 }

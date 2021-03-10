@@ -1,9 +1,7 @@
 export default class gameControl{
-    startGame(tick) {
-        //window.addEventListener("keypress", gameControl.processInput, false);
-        tick();
+    constructor() {
     }
-    /*processInput(keyPressed) {
+    processInput(keyPressed,snake,tick) {
         let key = keyPressed.key.toLowerCase();
         let targetDirection = snake.facing;
         if (key === "w" && snake.facing !== "S") {
@@ -19,8 +17,8 @@ export default class gameControl{
             targetDirection = "E";
         }
         snake.facing = targetDirection;
-        g.tick();
-    }*/
+        tick();
+    }
 }
 /*window.addEventListener('keydown', function (keyPressed) {
     let key = keyPressed.key;

@@ -1,7 +1,13 @@
 .flex{
     display:flex;
 }
-
+.endgame{
+    display:none;
+}
+.startGame{
+    display: none;
+}
 .game{
+    display: flex;
     margin:0 auto;
 }

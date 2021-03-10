@@ -1,16 +1,14 @@
 "use strict"
 import game from "./Game.js";
-import snake from "./Snake.js";
 import graphics from "./Graphics.js";
-import scene from "./Scene.js";
-import apple from "./Apple.js";
-let test=new scene();
 let Game = new game();
-let s = new snake();
-let a=new apple();
-let gg = new graphics(test.scene.length, test.scene[0].length);
-gg.drawGame(a.coor, s.parts, test.getWall());
-Game.tick(gg.drawGame(a.coor, s.parts, test.getWall(),test.createField(),Game.isWall),s.move(test.createField(),Game.isWall))
+let Graphics = new graphics(Game.scene.scene.length, Game.scene.scene[0].length);
+//Graphics.drawGame(Game.apple.coor, Game.snake.parts, Game.scene.getWall());
+//Game.snake.move();
+//Game.snake.move();
+Game.tick();
+
+
 
 /*let Game = new game();
 let s = new snake();

@@ -6,13 +6,20 @@ export default class graphics {
 
     draw(ctx, source, color) {
         let r = this.squarSize;
+        if (source.constructor===Array){
+            console.log(1);
         source.forEach(function (part) {
             let partXlocation = part.x * r;
             let partYlocation = part.y * r;
             ctx.fillStyle = color;
             ctx.fillRect(partXlocation, partYlocation, r, r);
-        });
-
+        });}
+    else{
+            let partXlocation = source.x * r;
+            let partYlocation = source.y * r;
+            ctx.fillStyle = color;
+            ctx.fillRect(partXlocation, partYlocation, r, r);
+        }
     };
 
     drawGame(fruit, snakeParts, scene) {
@@ -21,5 +28,7 @@ export default class graphics {
         this.draw(ctx, scene, "black");
         this.draw(ctx, fruit, "red");
         this.draw(ctx, snakeParts, "blue");
+        this.draw(ctx, snakeParts[0], "yellow");
+
     }
 };
